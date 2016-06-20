@@ -1,0 +1,95 @@
+@import "../base/fn";
+$dialogBackgroundColor: #FAFAFC;
+$dialogLineColor: #D5D5D6;
+$dialogLinkColor: #3CC51F;
+$dialogLinkActiveBc: #EEEEEE;
+
+.dialog {
+    position: fixed;
+    z-index: 13;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: $dialogBackgroundColor;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+    .dialog_confirm & {
+        .dialog_hd {
+            padding: 1.2em 20px .5em;
+        }
+        .dialog_bd {
+            text-align: left;
+        }
+    }
+}
+
+.dialog_hd {
+    padding: 1.2em 0 .5em;
+}
+
+.dialog_title {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.dialog_bd {
+    padding: 0 20px;
+    font-size: 15px;
+    color: $globalTextColor;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.dialog_ft {
+    position: relative;
+    line-height: 42px;
+    margin-top: 20px;
+    font-size: 17px;
+    display: flex;
+    a {
+        display: block;
+        flex: 1;
+        color: $dialogLinkColor;
+        text-decoration: none;
+        @include setTapColor;
+        &:active {
+            background-color: $dialogLinkActiveBc;
+        }
+    }
+    &:after {
+        content: " ";
+        @include setTopLine($dialogLineColor);
+    }
+    .dialog_confirm & {
+        a {
+            position: relative;
+            &:after {
+                content: " ";
+                @include setLeftLine($dialogLineColor);
+            }
+            &:first-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.btn_dialog {
+    &.default {
+        color: #353535;
+    }
+    &.primary {
+        color: #0BB20C;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .dialog {
+        width: 35%;
+    }
+}

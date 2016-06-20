@@ -1,0 +1,51 @@
+@import "../base/fn";
+
+
+.navbar {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    background-color: #fafafa;
+
+    &:after {
+        @include setBottomLine($globalBorderColor);
+    }
+
+    & + .tab_bd {
+        padding: 50px 10px 0 10px;
+    }
+
+    .navbar_item {
+        position: relative;
+        display: block;
+        flex: 1;
+        padding: 13px 0;
+        text-align: center;
+        font-size: 15px;
+        -webkit-tap-highlight-color: transparent;
+
+        &:active {
+            background-color: #ededed;
+        }
+
+        &.on {
+            background-color: #eaeaea;
+        }
+
+        &:after {
+            @include setRightLine(#cccccc);
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+

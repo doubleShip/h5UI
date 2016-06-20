@@ -1,0 +1,27 @@
+@import "variables.scss";
+.mtm { margin-top: $margin-normal !important;}
+.mlm { margin-left: $margin-normal !important;}
+.mrm { margin-right: $margin-normal !important;}
+.mbm { margin-bottom: $margin-normal !important;}
+.mtl { margin-top: $margin-big !important;}
+.mll { margin-left: $margin-big !important;}
+.mrl { margin-right: $margin-big !important;}
+.mbl { margin-bottom: $margin-big !important;}
+.mts { margin-top: $margin-small !important;}
+.mls { margin-left: $margin-small !important;}
+.mrs { margin-right: $margin-small !important;}
+.mbs { margin-bottom: $margin-small !important;}
+.mauto { margin: 0 auto; }
+.mbnone { margin-bottom: 0 !important;}
+.mtnone { margin-top: 0 !important;}
+
+.fl { float: left;}
+.fr { float: right;}
+
+.clearfix:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden
+}

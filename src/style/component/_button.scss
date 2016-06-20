@@ -1,0 +1,180 @@
+@import "./../base/fn";
+
+//.weui_btn_area {
+//    margin: $cellsMarginTop $btnDefaultGap .3em;
+//    &.weui_btn_area_inline {
+//        display: flex;
+//        .weui_btn {
+//            margin-top: auto;
+//            margin-right: $btnDefaultGap;
+//            width: 100%;
+//            flex: 1;
+//            &:last-child {
+//                margin-right: 0;
+//            }
+//        }
+//    }
+//}
+
+
+/*按钮间的上下间距*/
+.btn + .btn {
+    margin-top: $btnDefaultGap;
+}
+/*按钮间的左右间距*/
+.btn.btn_inline + .btn.btn_inline {
+    margin-top: auto;
+    margin-left: $btnDefaultGap;
+}
+
+.btn {
+    width: 100%;
+    border-width: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: $btnFontSize;
+    text-align: center;
+    text-decoration: none;
+    line-height: $btnHeight/$btnFontSize;
+    border-radius: $btnBorderRadius;
+    @include setTapColor();
+    overflow: hidden;
+    background-color: $btnDefaultBg;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:after {
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, .2);
+        transform: scale(.5);
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: $btnBorderRadius*2;
+    }
+
+    &.btn_inline {
+        display: inline-block;
+    }
+
+    &.btn_inline,&.btn_small {
+        width: auto;
+    }
+
+    //////////////////////////////////////////
+    ///////// btn small
+    //////////////////////////////////////////
+
+    &.btn_small {
+        line-height: $btnMiniHeight;
+        font-size: $btnMiniFontSize;
+        padding: 0 .75em;
+        display: inline-block;
+    }
+
+    //////////////////////////////////////////
+    ///////// btn default
+    //////////////////////////////////////////
+
+    &.btn_default {
+        color: $btnDefaultFontColor;
+        &:not(.btn_disabled):visited {
+            color: $btnDefaultFontColor;
+        }
+        &:not(.btn_disabled):active {
+            color: $btnDefaultActiveFontColor;
+            background-color: $btnDefaultActiveBg;
+        }
+        &.btn_disabled {
+            color: $btnDefaultDisabledFontColor;
+        }
+    }
+
+    //////////////////////////////////////////
+    ///////// btn primary
+    //////////////////////////////////////////
+
+    &.btn_primary {
+        color: $btnFontColor;
+        background-color: $btnPrimaryBg;
+        &:not(.btn_disabled):visited {
+            color: $btnFontColor;
+        }
+        &:not(.btn_disabled):active {
+            color: $btnActiveFontColor;
+            background-color: $btnPrimaryActiveBg;
+        }
+    }
+
+
+    //////////////////////////////////////////
+    ///////// btn warn
+    //////////////////////////////////////////
+
+    &.btn_warn {
+        color: $btnFontColor;
+        background-color: $btnWarnBg;
+        &:not(.btn_disabled):visited {
+            color: $btnFontColor;
+        }
+        &:not(.btn_disabled):active {
+            color: $btnActiveFontColor;
+            background-color: $btnWarnActiveBg;
+        }
+    }
+
+
+    //////////////////////////////////////////
+    ///////// btn plain
+    //////////////////////////////////////////
+
+    //&.btn_primaryPlain {
+    //    color: $btnPrimaryBg;
+    //    border: 1px solid $btnPrimaryBg;
+    //    button, input {
+    //        border-width: 1px;
+    //        background-color: transparent;
+    //    }
+    //    &:active {
+    //        border-color: $btnPrimaryActiveBg;
+    //    }
+    //    &:after {
+    //        border-width: 0;
+    //    }
+    //}
+    //
+    //.btn_primaryPlainDefault {
+    //    color: #5A5A5A;
+    //    border: 1px solid #5A5A5A;
+    //    button, input {
+    //        border-width: 1px;
+    //        background-color: transparent;
+    //    }
+    //    &:after {
+    //        border-width: 0;
+    //    }
+    //}
+
+
+    //////////////////////////////////////////
+    ///////// btn disable
+    //////////////////////////////////////////
+
+    &.btn_disabled {
+        color: $btnDisabledFontColor;
+    }
+
+}

@@ -1,0 +1,85 @@
+@import "_font";
+
+[class^="icon_"]:before, [class*=" icon_"]:before {
+    margin: 0;
+}
+
+.icon_success:before {
+    font-size: 23px;
+    color: #09BB07;
+}
+.icon_waiting:before {
+    font-size: 23px;
+    color: #10AEFF;
+}
+.icon_warn:before {
+    font-size: 23px;
+    color: #F43530;
+}
+.icon_info:before {
+    font-size: 23px;
+    color: #10AEFF;
+}
+
+.icon_success_circle:before {
+    font-size: 23px;
+    color: #09BB07;
+}
+.icon_success_no_circle:before {
+    font-size: 23px;
+    color: #09BB07;
+}
+.icon_waiting_circle:before {
+    font-size: 23px;
+    color: #10AEFF;
+}
+.icon_circle:before {
+    font-size: 23px;
+    color: #C9C9C9;
+}
+.icon_download:before {
+    font-size: 23px;
+    color: #09BB07;
+}
+
+.icon_info_circle:before {
+    font-size: 23px;
+    color: #09BB07;
+}
+
+.icon_safe_success:before {
+    color: #09BB07;
+}
+.icon_safe_warn:before {
+    color: #FFBE00;
+}
+
+.icon_cancel:before {
+    color: #F43530;
+    font-size: 22px;
+}
+
+.icon_search:before {
+    color: #B2B2B2;
+    font-size: 14px;
+}
+
+.icon_clear:before {
+    color: #B2B2B2;
+    font-size: 14px;
+}
+
+
+.icon_msg {
+    &:before {
+        font-size: 104px;
+    }
+
+    &.icon_warn:before{
+        color: #F76260;
+    }
+}
+
+.icon_safe:before {
+    font-size: 104px;
+}

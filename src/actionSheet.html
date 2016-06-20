@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+<title>h5</title>
+<link href="css/main.min.css" rel="stylesheet">
+    <script src="./zepto.min.js"></script>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="">
+    <div class="hd">
+        <h1 class="page_title">ActionSheet</h1>
+    </div>
+    <div class="bd spacing">
+        <a href="javascript:;" class="btn btn_primary" id="showActionSheet">点击上拉ActionSheet</a>
+    </div>
+    <!--BEGIN actionSheet-->
+    <div id="actionSheet_wrap">
+        <div class="mask_transition" id="mask" style="display: none;"></div>
+        <div class="actionsheet" id="actionsheet">
+            <div class="actionsheet_menu">
+                <div class="actionsheet_cell">示例菜单</div>
+                <div class="actionsheet_cell">示例菜单</div>
+                <div class="actionsheet_cell">示例菜单</div>
+                <div class="actionsheet_cell">示例菜单</div>
+            </div>
+            <div class="actionsheet_action">
+                <div class="actionsheet_cell" id="actionsheet_cancel">取消</div>
+            </div>
+        </div>
+    </div>
+    <!--END actionSheet-->
+</div></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+        $('#container').on('click', '#showActionSheet', function () {
+            var mask = $('#mask');
+            var weuiActionsheet = $('#actionsheet');
+            weuiActionsheet.addClass('actionsheet_toggle');
+            mask.show()
+                    .focus()//加focus是为了触发一次页面的重排(reflow or layout thrashing),使mask的transition动画得以正常触发
+                    .addClass('fade_toggle').one('click', function () {
+                hideActionSheet(weuiActionsheet, mask);
+            });
+            $('#actionsheet_cancel').one('click', function () {
+                hideActionSheet(weuiActionsheet, mask);
+            });
+            mask.unbind('transitionend').unbind('webkitTransitionEnd');
+
+            function hideActionSheet(weuiActionsheet, mask) {
+                weuiActionsheet.removeClass('actionsheet_toggle');
+                mask.removeClass('fade_toggle');
+                mask.on('transitionend', function () {
+                    mask.hide();
+                }).on('webkitTransitionEnd', function () {
+                    mask.hide();
+                })
+            }
+        });
+    })
+</script>

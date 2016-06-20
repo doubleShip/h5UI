@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+<title>h5</title>
+<link href="css/main.min.css" rel="stylesheet">
+    <script src="./zepto.min.js"></script>
+</head>
+<body>
+<div class="container" id="container">
+<div class="">
+    <div class="hd">
+        <h1 class="page_title">Dialog</h1>
+    </div>
+    <div class="bd spacing">
+        <a href="javascript:;" class="btn btn_primary" id="showDialog1">点击弹出Dialog样式一</a>
+        <a href="javascript:;" class="btn btn_primary" id="showDialog2">点击弹出Dialog样式二</a>
+    </div>
+    <!--BEGIN dialog1-->
+    <div class="dialog_confirm" id="dialog1" style="display: none;">
+        <div class="mask"></div>
+        <div class="dialog">
+            <div class="dialog_hd"><strong class="dialog_title">弹窗标题</strong></div>
+            <div class="dialog_bd">自定义弹窗内容，居左对齐显示，告知需要确认的信息等</div>
+            <div class="dialog_ft">
+                <a href="javascript:;" class="btn_dialog default">取消</a>
+                <a href="javascript:;" class="btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <!--END dialog1-->
+    <!--BEGIN dialog2-->
+    <div class="dialog_alert" id="dialog2" style="display: none;">
+        <div class="mask"></div>
+        <div class="dialog">
+            <div class="dialog_hd"><strong class="dialog_title">弹窗标题</strong></div>
+            <div class="dialog_bd">弹窗内容，告知当前页面信息等</div>
+            <div class="dialog_ft">
+                <a href="javascript:;" class="btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <!--END dialog2-->
+</div></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+        $('#container').on('click', '#showDialog1', function () {
+            $('#dialog1').show().on('click', '.btn_dialog', function () {
+                $('#dialog1').off('click').hide();
+            });
+        }).on('click', '#showDialog2', function () {
+            $('#dialog2').show().on('click', '.btn_dialog', function () {
+                $('#dialog2').off('click').hide();
+            });
+        });
+    })
+</script>

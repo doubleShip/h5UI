@@ -1,0 +1,30 @@
+//
+@import "base/_reset";
+
+// icon font
+@import "icon/_icon_font";
+
+//component
+@import "component/_button";
+@import "component/_tab";
+@import "component/_search";
+@import "component/_msg";
+
+@import "component/_mask";
+@import "component/_dialog";
+@import "component/_actionSheet";
+@import "component/_toast";
+
+@import "component/_page";
+@import "component/_panel";
+@import "component/_grid";
+
+@import "component/_cell";
+@import "component/_form";
+@import "component/_upload";
+@import "component/_mediaBox";
+/////
+
+.container>div {
+    background: #fbf9fe;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+<title>h5</title>
+<link href="css/main.min.css" rel="stylesheet">
+    <script src="./zepto.min.js"></script>
+</head>
+<body>
+<div class="container" id="container">
+
+    <div class="searchbar">
+        <div class="bd" style="height: 24px">
+        <!--<a href="javascript:;" class="weui_btn weui_btn_primary">点击展现searchBar</a>-->
+            <div class="search_bar" id="search_bar">
+                <form class="search_outer">
+                    <div class="search_inner">
+                        <i class="icon_search"></i>
+                        <input type="search" class="search_input" id="search_input" placeholder="搜索" required="">
+                        <a href="javascript:" class="icon_clear" id="search_clear"></a>
+                    </div>
+                    <label for="search_input" class="search_text" id="search_text">
+                        <i class="icon_search"></i>
+                        <span>搜索</span>
+                    </label>
+                </form>
+                <a href="javascript:" class="search_cancel" id="search_cancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="weui_cells weui_cells_access search_show" id="search_show">-->
+    <!--<div class="weui_cell">-->
+    <!--<div class="weui_cell_bd weui_cell_primary">-->
+    <!--<p>实时搜索文本</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="weui_cell">-->
+    <!--<div class="weui_cell_bd weui_cell_primary">-->
+    <!--<p>实时搜索文本</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="weui_cell">-->
+    <!--<div class="weui_cell_bd weui_cell_primary">-->
+    <!--<p>实时搜索文本</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="weui_cell">-->
+    <!--<div class="weui_cell_bd weui_cell_primary">-->
+    <!--<p>实时搜索文本</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+        $('#container').on('focus', '#search_input', function () {
+            var $weuiSearchBar = $('#search_bar');
+            $weuiSearchBar.addClass('search_focusing');
+        }).on('blur', '#search_input', function () {
+            var $weuiSearchBar = $('#search_bar');
+            $weuiSearchBar.removeClass('search_focusing');
+            if ($(this).val()) {
+                $('#search_text').hide();
+            } else {
+                $('#search_text').show();
+            }
+        }).on('input', '#search_input', function () {
+            var $searchShow = $("#search_show");
+            if ($(this).val()) {
+                $searchShow.show();
+            } else {
+                $searchShow.hide();
+            }
+        }).on('touchend', '#search_cancel', function () {
+            $("#search_show").hide();
+            $('#search_input').val('');
+        }).on('touchend', '#search_clear', function () {
+            $("#search_show").hide();
+            $('#search_input').val('');
+        });
+    })
+</script>

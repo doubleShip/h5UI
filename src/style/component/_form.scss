@@ -1,0 +1,293 @@
+@import "../base/fn";
+///
+.label{
+    display:block;
+    width:$cellLabelWidth;
+    @include text_wrap();
+}
+.input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: inherit;
+    color: inherit;
+    height: ($cellLineHeight)em;
+    line-height: $cellLineHeight;
+
+    // hides the spin-button
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+.textarea {
+    display: block;
+    border: 0;
+    resize: none;
+    width: 100%;
+    color: inherit;
+    font-size: 1em;
+    line-height: inherit;
+    outline: 0;
+}
+
+.textarea_counter{
+    color: $globalDescColor;
+    text-align: right;
+    .cell_warn &{
+        color: $globalWarnColor;
+    }
+}
+
+.toptips {
+    display:none;
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    width: 100%;
+    top: 0;
+    line-height: 2.3;
+    font-size:14px;
+    text-align: center;
+    color: #FFF;
+    z-index: 2;
+    &.warn {
+        background-color: $globalWarnColor;
+    }
+}
+.cells_form {
+    .cell_warn{
+        color:$globalWarnColor;
+        .icon_warn{display:inline-block;}
+    }
+    .cell_ft{font-size:0;}
+    .icon_warn{
+        display:none;
+    }
+    input, textarea, label[for]{
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+}
+
+
+
+/////////////////////////
+/////select
+////////////////////////
+.cell_select {
+    padding: 0;
+    .select {
+        padding-right: 30px;
+    }
+    .access_icon {
+
+    }
+    .cell_bd{
+        &:after{
+            content: " ";
+            @include setArrow_Wap(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: $cellGapH;
+            margin-top: -3px;
+        }
+    }
+}
+
+.select {
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 100%;
+    font-size: inherit;
+    height: $cellHeight;
+    line-height: $cellHeight;
+    position: relative;
+    z-index: 1;
+    padding-left: $cellGapH;
+}
+
+.select_after {
+    padding-left:$cellGapH;
+    .select {
+        padding-left:0;
+    }
+}
+
+
+
+.select_before {
+    padding-right:$cellGapH;
+    .select {
+        width:$cellLabelWidth;
+        box-sizing: border-box;
+    }
+    .cell_hd {
+        position:relative;
+        &:after {
+            @include setRightLine($cellBorderColor);
+        }
+        &:before{
+            content: " ";
+            @include setArrow_Wap(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: $cellGapH;
+            margin-top: -3px;
+        }
+    }
+    .cell_bd {
+        padding-left:$cellGapH;
+        &:after{
+            display:none;
+        }
+    }
+}
+
+////////////////////////////
+////vcode
+////////////////////////////
+.vcode {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    .cell_ft {
+        img {
+            margin-left: 5px;
+            height: $cellHeight;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+///////////////////////////
+/////check
+//////////////////////////
+.check_label {
+    @include setTapColor();
+}
+
+.check{
+    position: absolute;
+    left: -9999em;
+}
+
+.cells_checkbox {
+    .cell_hd {
+        padding-right: $cellInnerGapH;
+    }
+    .cell {
+        &:active {
+            background-color: #ECECEC;
+        }
+    }
+    .icon_checked {
+        &:before {
+            content: '\EA01';
+            color: #C9C9C9;
+            font-size: 23px;
+            display: block;
+        }
+    }
+}
+
+// method2 accessbility
+.check {
+    // checkbox
+    .cells_checkbox & {
+        &:checked {
+            & + .icon_checked {
+                &:before {
+                    content: '\EA06';
+                    color: #09BB07;
+                }
+            }
+        }
+    }
+}
+
+.cells_radio{
+    .cell_ft {
+        padding-left: $cellInnerGapH;
+    }
+    .cell {
+        &:active {
+            background-color: #ECECEC;
+        }
+    }
+}
+.check {
+    // radio
+    .cells_radio & {
+        &:checked {
+            & + .icon_checked {
+                &:before {
+                    display: block;
+                    content: '\EA08';
+                    color: #09BB07;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+
+/////////////////////////
+////switch
+////////////////////////
+$switchHeight: 32px;
+.cell_switch{
+    padding-top: ($cellHeight - $switchHeight) / 2;
+    padding-bottom: ($cellHeight - $switchHeight) / 2;
+}
+.switch{
+    appearance: none;
+    position: relative;
+    width: 52px;
+    height: $switchHeight;
+    border: 1px solid #DFDFDF;
+    outline: 0;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: #DFDFDF;
+    &:before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: $switchHeight - 2;
+        border-radius: 15px;
+        background-color: #FDFDFD;
+        transition:transform .3s;
+    }
+    &:after{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $switchHeight - 2;
+        height: $switchHeight - 2;
+        border-radius: 15px;
+        background-color: #FFFFFF;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        transition:transform .3s;
+    }
+
+    &:checked{
+        border-color: #04BE02;
+        background-color: #04BE02;
+        &:before{
+            transform: scale(0);
+        }
+        &:after{
+            transform: translateX(20px);
+        }
+    }
+}
